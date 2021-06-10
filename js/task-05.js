@@ -53,7 +53,8 @@ class Car {
    * и сбрасывает текущую скорость в 0
    */
   turnOff() {
-    return (this.isOn = false), (this.speed = 0);
+    this.isOn = false;
+    this.speed = 0;
   }
   /*
    * Добавялет к свойству speed полученное значение,
@@ -71,9 +72,8 @@ class Car {
    * при условии что результирующая скорость не меньше нуля
    */
   decelerate(value) {
-    let decelerateSpeed = this.speed - value;
-    if (decelerateSpeed > 0) {
-      this.speed = decelerateSpeed;
+    if (this.speed - value > 0) {
+      this.speed -= value;
     }
   }
   /*
